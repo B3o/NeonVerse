@@ -14,7 +14,7 @@ interface BuildingData {
   color: string
   emissiveColor: string
   emissiveIntensity: number
-  shape: 'box' | 'cylinder' | 'sphere'
+  shape: 'box' | 'cylinder' | 'sphere' | 'pagoda'
 }
 
 export function CityGrid() {
@@ -55,9 +55,17 @@ export function CityGrid() {
         ? ['#00ffff', '#ff00ff', '#ff40a0', '#40ff80'] // Bright neon for center
         : ['#4080ff', '#40ff40', '#ff8040', '#8040ff'] // More subdued for outer
       
-      // Vary shapes based on district
-      const shapes = ['box', 'cylinder', 'sphere'] as const
-      const shape = shapes[Math.floor(Math.random() * (district === 'center' ? 3 : 2))]
+      // Vary shapes based on district with pagoda option in center
+      const shapes = ['box', 'cylinder', 'sphere', 'pagoda'] as const
+      let shape: typeof shapes[number]
+      
+      if (district === 'center' && Math.random() < 0.3) {
+        // 30% chance of pagoda in center district
+        shape = 'pagoda'
+      } else {
+        // Regular shape distribution
+        shape = shapes[Math.floor(Math.random() * 3)] // Exclude pagoda from random selection
+      }
 
       buildingData.push({
         position,
