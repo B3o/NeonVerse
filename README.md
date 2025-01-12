@@ -1,50 +1,116 @@
-# React + TypeScript + Vite
+# NeonVerse - 赛博朋克三维城市可视化
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 项目简介
+NeonVerse 是一个基于 Three.js + React 的赛博朋克风格 3D 可视化项目，旨在模拟近未来城市景观，融合科幻、霓虹与中国风元素等多种元素。项目灵感来源于《银翼杀手》、《攻壳机动队》与《赛博朋克 2077》等经典作品，通过 Three.js 的强大能力将未来都市的科幻梦境具象化。
 
-Currently, two official plugins are available:
+## 功能特性
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 1. 城市布局
+- 基于泊松分布的有机城市布局，模拟真实街区分布
+- 区域化设计：商业中心区、外围区域等不同功能分区
+- 动态密度分布，营造真实的城市空间层次感
 
-## Expanding the ESLint configuration
+### 2. 建筑系统
+- 多样化建筑形态：方形、圆柱、球形及传统宝塔式建筑
+- 中国传统建筑元素：飞檐（上翘屋檐）、琉璃瓦、装饰性屋顶
+- 精细建筑细节：窗户网格、空调外机、阳台结构
+- 动态材质系统：反光材质、法线贴图、发光效果
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### 3. 视觉效果
+- 高级后期处理：泛光(Bloom)、景深(DOF)、色差(Chromatic Aberration)
+- 动态光影系统：建筑发光、霓虹招牌、环境光照
+- 大气粒子效果：漂浮光点、雾气氛围
+- 中文霓虹招牌系统，支持动态文字切换
 
-- Configure the top-level `parserOptions` property like this:
+### 4. 交通系统
+- 悬浮车辆系统
+- 巡航无人机
+- 磁悬浮列车网络
+- 动态路径规划
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+### 5. 环境细节
+- 动态天空盒系统
+- 地面电路图案
+- 全息广告投影
+- 悬浮平台系统
+
+## 技术栈
+- React 18
+- Three.js / React Three Fiber
+- TypeScript
+- Vite
+
+## 快速开始
+
+### 环境要求
+- Node.js >= 16
+- npm >= 7
+
+### 安装步骤
+```bash
+# 克隆项目
+git clone https://github.com/B3o/NeonVerse.git
+
+# 进入项目目录
+cd NeonVerse
+
+# 进入前端目录
+cd frontend/neonverse
+
+# 安装依赖
+npm install
+
+# 启动开发服务器
+npm run dev
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### 构建部署
+```bash
+# 构建生产版本
+npm run build
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+# 预览构建结果
+npm run preview
 ```
+
+## 项目结构
+```
+src/
+├── components/
+│   ├── city/          # 城市相关组件
+│   ├── effects/       # 特效组件
+│   ├── environment/   # 环境相关组件
+│   └── traffic/       # 交通系统组件
+├── utils/             # 工具函数
+└── App.tsx           # 主应用组件
+```
+
+## 开发说明
+
+### 建筑系统
+建筑系统支持多种形态，包括：
+- 现代建筑：方形、圆柱形、球形
+- 传统建筑：宝塔式建筑，带有传统屋檐结构
+- 支持自定义材质、发光效果和动态交互
+
+### 城市生成
+使用泊松分布算法实现有机的城市布局，确保：
+- 建筑物之间保持适当间距
+- 不同区域密度变化
+- 中心区域与周边区域的自然过渡
+
+### 性能优化
+- 实例化渲染 (Instancing)
+- 细节层级 (LOD)
+- 材质合并
+- 后期处理性能调优
+
+## 贡献指南
+1. Fork 项目
+2. 创建特性分支
+3. 提交更改
+4. 推送到分支
+5. 创建 Pull Request
+
+## 许可证
+MIT License
