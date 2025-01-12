@@ -13,7 +13,7 @@ function App() {
   return (
     <div className="w-full h-screen bg-black">
       <Canvas shadows>
-        <PerspectiveCamera makeDefault position={[0, 15, 25]} />
+        <PerspectiveCamera makeDefault position={[20, 20, 30]} />
         <OrbitControls 
           enableDamping 
           dampingFactor={0.05}

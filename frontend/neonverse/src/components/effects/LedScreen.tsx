@@ -1,21 +1,29 @@
-import React, { useRef, useState, useCallback } from 'react'
+import { useRef, useState, useCallback } from 'react'
 import { Mesh, Vector3, MeshStandardMaterial, Color } from 'three'
 import { useFrame } from '@react-three/fiber'
-import { Plane } from '@react-three/drei'
+import { Plane, Text } from '@react-three/drei'
 
 interface LedScreenProps {
   position: [number, number, number]
   rotation?: [number, number, number]
   scale?: [number, number, number]
   color?: string
+  text?: string // Optional Chinese text
 }
 
 export function LedScreen({
   position,
   rotation = [0, 0, 0],
   scale = [1, 1, 1],
-  color = '#40ffff'
+  color = '#40ffff',
+  text
 }: LedScreenProps) {
+  // Chinese neon text options
+  const neonTexts = [
+    '未来', '科技', '霓虹', '夜城',
+    '龙腾', '飞跃', '繁华', '梦幻'
+  ]
+  const displayText = text || neonTexts[Math.floor(Math.random() * neonTexts.length)]
   const meshRef = useRef<Mesh>(null)
   const [isActive, setIsActive] = useState(false)
   const [baseColor] = useState(new Color(color))
@@ -52,13 +60,26 @@ export function LedScreen({
       scale={new Vector3(...scale)}
       onClick={handleClick}
     >
-      <meshStandardMaterial
-        color={color}
-        emissive={color}
-        emissiveIntensity={1}
-        metalness={0.8}
-        roughness={0.2}
-      />
+      <>
+        <meshStandardMaterial
+          color={color}
+          emissive={color}
+          emissiveIntensity={1}
+          metalness={0.8}
+          roughness={0.2}
+        />
+        {/* Text overlay */}
+        <Text
+          position={[0, 0, 0.01]}
+          fontSize={scale[1] * 0.8}
+          font="/fonts/NotoSansSC-Bold.ttf"
+          color={color}
+          anchorX="center"
+          anchorY="middle"
+        >
+          {displayText}
+        </Text>
+      </>
     </Plane>
   )
 }
