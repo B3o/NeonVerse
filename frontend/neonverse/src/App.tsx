@@ -1,3 +1,4 @@
+import React from 'react'
 import { Canvas } from '@react-three/fiber'
 import { OrbitControls, PerspectiveCamera, Environment } from '@react-three/drei'
 import { EffectComposer, Bloom, DepthOfField, ChromaticAberration } from '@react-three/postprocessing'

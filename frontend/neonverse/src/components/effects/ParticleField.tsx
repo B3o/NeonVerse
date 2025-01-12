@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import React, { useMemo } from 'react'
 import { Points } from '@react-three/drei'
 
 export function ParticleField() {

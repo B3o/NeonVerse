@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import React, { useMemo } from 'react'
 import { Building } from './Building'
 import { FloatingPlatform } from './FloatingPlatform'
 import { HologramAd } from '../effects/HologramAd'
