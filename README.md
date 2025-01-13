@@ -1,10 +1,11 @@
-# NeonVerse - 赛博朋克三维城市可视化（全程由Devin开发的项目  用于测试娱乐）
+# NeonVerse - 赛博朋克三维城市可视化
 
 ## 项目简介
 NeonVerse 是一个基于 Three.js + React 的赛博朋克风格 3D 可视化项目，旨在模拟近未来城市景观，融合科幻、霓虹与中国风元素等多种元素。项目灵感来源于《银翼杀手》、《攻壳机动队》与《赛博朋克 2077》等经典作品，通过 Three.js 的强大能力将未来都市的科幻梦境具象化。
+本项目全程由Devin开发  用于测试娱乐
 
 ## 效果预览
-https://neon-cyberpunk-website-7ctuayg0.devinapps.com/、
+https://neon-cyberpunk-website-7ctuayg0.devinapps.com/
 
 ## 功能特性
 
